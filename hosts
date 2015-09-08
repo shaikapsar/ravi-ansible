@@ -1,0 +1,4 @@
+[rabbitmq_nodes]
+node-7 ansible_connection=ssh ansible_ssh_user='root'
+node-8 ansible_connection=ssh ansible_ssh_user='root'
+

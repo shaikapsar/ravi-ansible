@@ -1,0 +1,26 @@
+- name: ensure python-software-properties is installed
+  apt: pkg=python-software-properties state=installed
+
+- name: add rabbitmq official apt repository
+  apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main' state=present
+
+- name: installing RabbitMQ server
+  apt: name=rabbitmq-server state=present
+  environment: proxy_env
+
+- name: enabling the RabbitMQ Management Console
+  rabbitmq_plugin: names=rabbitmq_management state=enabled
+
+- name: ensuring that the RabbitMQ service is running
+  service: name=rabbitmq-server state=started enabled=yes
+
+- name: checking to see if already clustered
+  stat: path=/etc/rabbitmq/clustered
+  register: clustered
+
+- include: rabbitmq_clustering.yml
+  when: enable_rabbitmq_clustering and (clustered.stat.exists != True)
+
+- include: guest_user_delete.yml
+
+- include: trove_user_create.yml

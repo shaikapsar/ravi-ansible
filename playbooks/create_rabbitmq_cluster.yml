@@ -1,0 +1,6 @@
+---
+
+- name: Create RabbitMQ Clustering
+  hosts: rabbitmq_nodes
+  roles:
+    - { role: ../roles/create_rabbitmq_cluster }

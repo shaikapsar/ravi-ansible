@@ -1,0 +1,6 @@
+---
+
+- name: create trove user in rabbitmq master
+  rabbitmq_user: user=trove password=sPxU5fH9Wecqr5 vhost=/ configure_priv=.* read_priv=.* write_priv=.* state=present tags=administrator
+  when: inventory_hostname == "{{ rabbitmq_master }}"
+

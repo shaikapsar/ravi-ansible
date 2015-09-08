@@ -1,0 +1,2 @@
+- include: playbooks/create_rabbitmq_cluster.yml
+

@@ -1,0 +1,7 @@
+---
+
+- name: delete guest user in rabbitmq master
+  rabbitmq_user: user=guest state=absent
+  when: inventory_hostname == "{{ rabbitmq_master }}"
+
+

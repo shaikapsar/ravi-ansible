@@ -1,0 +1,10 @@
+proxy_env:
+  https_proxy: https://one.proxy.att.com:8888/
+  http_proxy: http://one.proxy.att.com:8888/
+  no_proxy: 127.0.0.1,192.168.0.0/24,10.20.0.2,node-7,node-8
+
+enable_rabbitmq_clustering: true
+erlang_cookie: LSKNKBELKPSTDBBCHETL
+rabbitmq_master: node-7
+rabbitmq_trove_user: trove
+rabbitmq_trove_password: sPxU5fH9Wecqr5
